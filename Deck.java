@@ -4,10 +4,6 @@ import java.util.Random;
 public class Deck {
 	private ArrayList<Card> cards;//放會使用的牌
 	private ArrayList<Card> usedCard;//放被使用過的牌
-	//增(1)
-	private ArrayList<Card> openCard; //（5pt）
-	//存放此副牌中所有打開的牌，洗牌時要重置
-	//END(1)
 	public int nUsed=0;//表使用過的牌的數量，並給初始值為零;
 	//TODO: Please implement the constructor (30 points)做了
 	public Deck(int nDeck){//建立以"副為單的牌"
@@ -37,11 +33,6 @@ public class Deck {
 	}	
 	
 	public void shuffle() {//洗牌，意指全部牌收回（不管發出去幾張），重新洗牌
-		//增(2)
-		//洗牌時記得重置private ArrayList openCard;（5pt）
-		openCard=new ArrayList<Card>();	//實體化
-		openCard.clear();//將其清空
-		//END(2)
 		//usedCard=new ArrayList<Card>();//實體化
 		nUsed=0;
 		int j=0;//用來存隨機的數字
@@ -66,23 +57,15 @@ public class Deck {
 			nUsed=0;
 		//洗還牌後使用過的牌的數量nUsed(發出的牌的數量)，將會重新變為零
 	}
-	//增(3)
-	//public Card getOneCard (boolean isOpened)
-	//- 拿到一張牌，修改原有方法，加入isOpened參數，決定發出去的牌是開著還是蓋起來的，若是開著的牌，加入openCard。（5pt）
-	//END(3)
-	public Card getOneCard(boolean isOpened){//發一張牌出來，回傳Card object,加入isOpened參數，決定發出去的牌是開著還是蓋起來的
+	public Card getOneCard(){//發一張牌出來，回傳Card object
 		//要檢查沒牌了 (牌都發完了) 怎麼辦？ shuffle() ！
 		//– 發出去的牌紀錄在ArrayList<Card> usedCard
 		//– 發了幾張牌？紀錄在private int nUsed=0
-		//測試//System.out.println(nUsed);
+		//System.out.println(nUsed);
+		usedCard=new ArrayList<Card>();//實體化
 		nUsed++;//把發出去的牌數的牌的數量記錄在nUsed
-		usedCard=new ArrayList<Card>();
 		Card card=new Card(cards.get(nUsed-1).getSuit(),cards.get(nUsed-1).getRank());//取一張牌，此張牌將被使用(被發出)
-		usedCard.add(card);//將要被發出地牌紀錄在usedCard;
-		if(isOpened=true)//如果要發的是明牌，isOpened=true
-		{
-			openCard.add(card);//將得到的牌存進明牌中
-		}
+		usedCard.add(card);//把發出的牌記錄在usedCard
 		//把發出去的牌數的牌的數量記錄在nUsed
 		//cards.remove(cards.get(0));//刪除發出去的牌
 		//card.printCard();
@@ -93,13 +76,7 @@ public class Deck {
 		}
 		return card;
 	}
-	//增(4)
-	public ArrayList getOpenedCard()//得到打開過的牌
-	{	
-		return openCard;//回傳此副牌中所有打開過的牌
-	}
-	//回傳此副牌中所有打開過的牌，意即openCard（5pt）
-	//END(4)
+	//
 	//TODO: Please implement the method to print all cards on screen (10 points)
 	/*public  void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
