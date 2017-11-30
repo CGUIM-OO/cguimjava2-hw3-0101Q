@@ -3,7 +3,7 @@ import java.util.HashMap;
 //import java.util.Scanner;
 
 /**
- * @author TODO: B0544145 æ›¹æ½”å¦®
+ * @author TODO: B0544145 ±ä¼ä©g
  * Try to write some comments for your codes (methods, 10 points)
  */
 public class HW3 {
@@ -12,7 +12,7 @@ public class HW3 {
 		//System.out.println("input N(deck of cards):");
 		//String testn= sc.nextLine(); 
 		int nDeck=1;
-		//TODO: please add new fields and methods to Deck class (35)Â°ÂµÂ¤F
+		//TODO: please add new fields and methods to Deck class (35)°µ¤F
 		//usedCard (5 points)ok
 		//nUsed (5 points)ok
 		//getOneCard (10 points)ok
@@ -21,7 +21,7 @@ public class HW3 {
 		Deck deck=new Deck(nDeck);
 		
 		//TODO: please check your output, make sure that you print newCard and newCard2 on your screen  (10 points)ok
-		//TODO: please add new fields and methods to Card class (25)Â°ÂµÂ¤F
+		//TODO: please add new fields and methods to Card class (25)°µ¤F
 		//Use enumerated type in Card (10 points)ok
 		//Constructor (5 points)ok
 		//printCard (5 points)ok
